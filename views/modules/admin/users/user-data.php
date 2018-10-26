@@ -5,16 +5,16 @@
 <div class="row">
 	<div class="col-10">
 		<div class="form-group row justify-content-around">
-			<input type="text" class="form-control col-5" id="user-name" name="user-name" placeholder="Nombre de usuario">
-			<input type="text" class="form-control col-5" id="user-lastname" name="user-lastname" placeholder="Apellido de usuario">
+			<input type="text" class="form-control col-5" id="user-name" name="user-name" placeholder="Nombre">
+			<input type="text" class="form-control col-5" id="user-lastname" name="user-lastname" placeholder="Apellido">
 		</div>
 		<div class="form-group row justify-content-around">
-			<input type="text" class="form-control col-4" id="user-dni" name="user-dni" placeholder="Dni de usuario">
-			<input type="email" class="form-control col-6" id="user-email" name="user-email" placeholder="Email de usuario">
+			<input type="text" class="form-control col-4" id="user-dni" name="user-dni" placeholder="Dni">
+			<input type="email" class="form-control col-6" id="user-email" name="user-email" placeholder="Email">
 		</div>
 		<div class="form-group row justify-content-around">
-			<input type="text" class="form-control col-3" id="user-phone" name="user-phone" placeholder="Telefono de usuario">
-			<input type="text" class="form-control col-4" id="user-adress" name="user-adress" placeholder="Direccion de usuario">
+			<input type="text" class="form-control col-3" id="user-phone" name="user-phone" placeholder="Telefono">
+			<input type="text" class="form-control col-4" id="user-adrress" name="user-adrress" placeholder="Direccion">
 			<select class="form-control col-3" id="tipo-user" name="">
 				<option value="0" selected disabled>Selecctionar tipo</option>
 				<option value="1">Alumno</option>

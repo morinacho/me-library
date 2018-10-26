@@ -3,11 +3,11 @@
 	class UserController{
 		
 		public function store(){
-			$request = array("usuario-dni"       => $_POST["usuario-dni"],
-						  	 "usuario-name"      => $_POST["usuario-name"],
-						  	 "usuario-lastname"  => $_POST["usuario-lastname"],
-						  	 "usuario-direccion" => $_POST["usuario-direccion"],
-						  	 "usuario-telefono"  => $_POST["usuario-telefono"]);
+			$request = array("user-dni"       => $_POST["user-dni"],
+						  	 "user-name"      => $_POST["user-name"],
+						  	 "user-lastname"  => $_POST["user-lastname"],
+						  	 "user-address" 	  => $_POST["user-address"],
+						  	 "user-phone"     => $_POST["user-phone"]);
 
 			$response = UserModel::storeModel($request);
 			if ($response){
