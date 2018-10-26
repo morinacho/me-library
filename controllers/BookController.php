@@ -11,7 +11,9 @@
 						  	"book-year"    => $_POST["book-year"],
 						  	"book-pag"	   => $_POST["book-pag"],
 		                "book-description" => $_POST["book-description"],
-		               "book-languaje"     => $_POST["book-languaje"]);
+		               "book-languaje"     => $_POST["book-languaje"],
+		               "select-editorial"  => $_POST["select-editorial"]
+		           															);
 
 
 
