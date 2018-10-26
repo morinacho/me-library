@@ -25,7 +25,7 @@
 
 		public function createModel(){
 			try{
-				$query = ConexionModel::conect()->prepare("SELECT nombre, apellido FROM autor ORDER BY nombre");			 
+				$query = ConexionModel::conect()->prepare("SELECT id_autor, nombre, apellido FROM autor ORDER BY apellido");			 
 		        $query->execute();
 		        $response = $query->fetchAll();
 		        return $response;  

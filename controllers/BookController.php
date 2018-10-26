@@ -15,9 +15,9 @@
 
 
 
-			/*$response = BookModel::storeModel($request); 
+			$response = BookModel::storeModel($request); 
 
-			
+				/*
 			echo 		  " isbn \n".$_POST["isbn"].
 					" book-title\n ". $_POST["book-title"].
 					" cdu\n "       . $_POST["cdu"].
