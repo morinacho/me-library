@@ -8,10 +8,10 @@
 			
 			//Enlaces de parametros
 			$query -> bindParam(":dni", $request["dni"], PDO::PARAM_INT);
-			$query -> bindParam(":name", $request["usuario-name"], PDO::PARAM_STR);
-			$query -> bindParam(":lastname", $request["usuario-lastname"], PDO::PARAM_STR);
-			$query -> bindParam(":address", $request["usuario-address"], PDO::PARAM_STR);
-			$query -> bindParam(":phone", $request["usuario-phone"], PDO::PARAM_STR);
+			$query -> bindParam(":name", $request["user-name"], PDO::PARAM_STR);
+			$query -> bindParam(":lastname", $request["user-lastname"], PDO::PARAM_STR);
+			$query -> bindParam(":address", $request["user-address"], PDO::PARAM_STR);
+			$query -> bindParam(":phone", $request["user-phone"], PDO::PARAM_STR);
 			//$query -> bindParam(":password", $request["dni"], PDO::PARAM_STR);
 
 			
