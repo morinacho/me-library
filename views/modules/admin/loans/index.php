@@ -27,5 +27,4 @@
   </div>
 </div>
 
-
-<?php   include("../foot.php"); ?>
+<?php include("../foot.php"); ?>
