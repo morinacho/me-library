@@ -3,6 +3,7 @@
 
 	class EditorialModel{
 
+###ver editorial 
 		public function createModel(){
 			try{
 				$query = ConexionModel::conect()->prepare("SELECT nombre, id_editorial FROM editorial ORDER BY nombre");			 
@@ -39,4 +40,6 @@
 			}
 		}	
 	}
-?>
+
+
+

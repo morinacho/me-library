@@ -1,7 +1,9 @@
 <?php 
   include("../head.php"); 
   include("../header.php");
+
 ?>
+
 
 <div class="row">
   <div class="col-2 menu-loans">

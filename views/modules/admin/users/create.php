@@ -18,3 +18,12 @@
 		<input class="col-4" type="button" name="" value="Cancelar">
 	</div>
 </form>
+<?php
+	require_once("../../../../controllers/UserController.php");
+	require_once("../../../../models/UserModel.php");
+
+	if(isset($_POST["save-user"])){
+		$createuser = new UserController();
+		$createuser->store();
+	}
+?>	

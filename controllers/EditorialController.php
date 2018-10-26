@@ -1,11 +1,12 @@
 <?php
 	class EditorialController{
 
+#view editorial
 		public function create(){
 			$response = EditorialModel::createModel(); 
 			return $response;
 		}
-
+#create editorial
 		public function store(){
 			$request=array("editorial-name"    => $_POST["editorial-name"],
 						   "editorial-address" => $_POST["editorial-address"]); 
@@ -19,6 +20,6 @@
 			}
 			header('Location:../views/modules/admin/books/index.php');		
 		}
-
 	}
-?>	
+
+?>

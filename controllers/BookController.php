@@ -1,4 +1,4 @@
-<?php
+|<?php
 
 	class BookController{
 ##insertar libro 
@@ -11,13 +11,15 @@
 						  	"book-year"    => $_POST["book-year"],
 						  	"book-pag"	   => $_POST["book-pag"],
 		                "book-description" => $_POST["book-description"],
-		               "book-languaje"     => $_POST["book-languaje"]);
+		               "book-languaje"     => $_POST["book-languaje"],
+		               "select-editorial"  => $_POST["select-editorial"]
+		           															);
 
 
 
-			/*$response = BookModel::storeModel($request); 
+			$response = BookModel::storeModel($request); 
 
-			
+				/*
 			echo 		  " isbn \n".$_POST["isbn"].
 					" book-title\n ". $_POST["book-title"].
 					" cdu\n "       . $_POST["cdu"].
