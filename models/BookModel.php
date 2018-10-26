@@ -4,14 +4,14 @@
 
 		public function storeModel($request){
 
-		 	$query = ConexionModel::conect()->prepare("INSERT INTO libro (isbn, titulo,tema_cdu,descripcion,volumen,año, paginas,edicion, ejemplar_unico,idioma_ididioma,editorial_id_editorial) VALUES (:isbn,:titulo,:cdu,:descripcion,:volumen,:año,:paginas,:edicion,:ejemplar_unico,:id_idioma,:id_editorial)" );
+		 	$query = ConexionModel::conect()->prepare("INSERT INTO libro (isbn, titulo,tema_cdu,descripcion,volumen,año, paginas,edicion, ejemplar_unico,idioma_ididioma,editorial_id_editorial) VALUES (:isbn,:titulo,:cdu,:descripcion,:volumen,:año,:paginas,:edicion,:ejemplar_unico,:id_idioma,:id_editorial)");
 
  
 			//Enlaces de parametros
 			
 			$query -> bindParam(":isbn", $request["isbn"], PDO::PARAM_INT);
 			$query -> bindParam(":titulo", $request["book-title"], PDO::PARAM_STR);
-			$query -> bindParam(":cdu", 1, PDO::PARAM_INT);
+			$query -> bindParam(":cdu",$request["cdu"] , PDO::PARAM_INT);
 			$query -> bindParam(":descripcion", $request["book-description"], PDO::PARAM_STR);
 			$query -> bindParam(":volumen", $request["book-volumen"], PDO::PARAM_INT);
 			$query -> bindParam(":año", $request["book-year"], PDO::PARAM_STR);
