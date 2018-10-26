@@ -21,5 +21,20 @@
 			$query -> close();
 
 		}
+
+
+/*
+		public function createModel(){
+			try{
+				$query = ConexionModel::conect()->prepare("SELECT nombre, apellido FROM autor ORDER BY nombre");			 
+		        $query->execute();
+		        $response = $query->fetchAll();
+		        return $response;  
+			}
+			catch(PDOException $exception) {
+			    return "Error: " . $exception->getMessage();
+			}
+		}*/
+
 	}
 ?>

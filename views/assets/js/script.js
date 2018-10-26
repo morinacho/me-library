@@ -4,10 +4,6 @@ $(document).ready(function(){
   		$('[data-toggle="tooltip"]').tooltip();
 	});
 
-	$( function(){
-    	$("#datepicker" ).datepicker();
-  	});
-
 	function validateLogin() {
 		let expresion = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 		if(!expresion.test($("#username-login").val()) || !expresion.test($("#password-login").val())){

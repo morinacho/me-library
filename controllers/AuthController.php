@@ -9,7 +9,7 @@
 			$request = array("mail"     => $_POST["email"],
 						  	 "password" => $_POST["password"],
 						  	 "admin"    => $_POST["admin"]);
-			$response = AuthModels::loginModel($request);
+			$response = AuthModel::loginModel($request);
 
 			if($response["mail"] == $_POST["email"] && $response["password"] == $_POST["password"]){
 				if ($_POST["admin"] == "on"){

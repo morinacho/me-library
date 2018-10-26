@@ -1,31 +1,86 @@
 <form method="post"  class="mt-5">
-	<nav>
-		<div class="nav nav-tabs justify-content-end" id="nav-tab" role="tablist">
-			<a class="nav-item nav-link active" id="book-data-tab" data-toggle="tab" href="#book-data" role="tab">Datos libro</a>
-			<a class="nav-item nav-link" id="autor-data-tab" data-toggle="tab" href="#autor-data" role="tab">Datos autor </a>
-			<a class="nav-item nav-link" id="editorial-data-tab" data-toggle="tab" href="#editorial-data" role="tab">Datos editorial</a>
-			<a class="nav-item nav-link" id="catalographic-data-tab" data-toggle="tab" href="#catalographic-data" role="tab">Datos catalografico</a>
+	
+	<div class="form-group row">
+		<h4 class="col-12">Datos del libro</h4>
+	</div>
+
+	<div class="row">
+		<div class="col-9">
+			<div class="form-group row">
+				<input name="book-title" id="book-title" class="form-control col-12" type="text" placeholder="Titulo del libro" required>
+			</div>
+			<div class="form-group row justify-content-between" >
+				<input name="isbn" type="number" class="form-control col-3"  placeholder="ISBN">
+				<input name="book-volumen" type="number" class="form-control col-3"  placeholder="Volumen">
+				<input name="book-edicion" type="text" class="form-control col-3"  placeholder="Edicion">
+
+			</div>
+			<div class="form-group row justify-content-between">
+				<input name="book-year" type="text" class="form-control col-3"  placeholder="año">
+				<input name="book-pag" type="number" class="form-control col-3" placeholder="cantidad páginas">
+				
+				<select name="book-languaje" class="form-control col-3">	
+					<option disabled selected >Selecionar idioma</option>
+					<option value="1">Español</option>
+					<option value="2">Ingles</option>
+					<option value="3">Portugues</option>
+				</select>
+			</div>
+			<div class="form-group row">
+				<textarea name="book-description" class="form-control col-12" rows="3" placeholder="Ingrese descripción del libro"></textarea>
+			</div>
 		</div>
-	</nav>
-	<div class="tab-content" id="book-create-tab">
-		<div class="tab-pane fade show active" id="book-data" role="tabpanel">
-			<?php @include("book-data.php"); ?>
+		<div class="col-3">
+			<div class="form-group">
+	    		<label class="justify-content-end" id="cover-preview" for="cover-img"></label>
+	    		<input name="cover-img" type="file" class="form-control-file" id="cover-img">
+	  		</div>
 		</div>
-		<div class="tab-pane fade" id="autor-data" role="tabpanel">
-			<?php @include("autor-data.php") ?>
-		</div>
-		<div class="tab-pane fade" id="editorial-data" role="tabpanel">
-			<?php @include("editorial-data.php") ?>
-		</div>
-		<div class="tab-pane fade" id="catalographic-data" role="tabpanel">
-			<?php @include("catalographic-data.php") ?>
-		</div
+	</div>
+	<div class="form-group row justify-content-between">
+		<select name="select-autors" id="autor-add" class="form-control col-10">
+			<option value="none" disabled selected>Seleccionar autor</option>
+			<option value="Robert Resnick">Robert Resnick</option>
+			<option value="Pablo Risk">Pablo Risk</option>
+		</select>
+		<div class="col-2">
+			<a href="" class="material-icons" data-toggle="modal" data-target="#create-autor">person_add</a>
+		</div>	
+	</div>
+	<div class="form-group row">
+		<select name="select-editorial" class="form-control select-editorial col-10">
+			<option value="" disabled selected>Seleccione Editorial</option>
+			<?php
+				require_once("../../../../controllers/EditorialController.php");
+	  	  		require_once("../../../../models/EditorialModel.php");
+				
+				$createEditorial = new EditorialController();
+	      		$editorials = $createEditorial->create();
+
+	      		foreach ($editorials as $key => $value) {
+	      			echo "<option value='". $key ."'>". $value ."</option>";
+	      		}
+			 ?>
+		</select>
+		<a href="" class="material-icons col-1" data-toggle="modal" id="add-new-editorial" data-target="#create-editorial">add</a>
+	</div>
+	<div class="form-group row">
+		<textarea name="description-extra" class="col-12" name="" id="" cols="100%" rows="3" placeholder="Ingresar descripcion"></textarea>	
+	</div>
+
+	<div class="form-group row justify-content-between">
+		<input name="cdu" class="form-control col-5" type="number" placeholder="CDU">
+		<input name="topographic-signature" class="form-control col-6" type="text" placeholder="Signatura topografica">
+	</div>
+
+	<div class="form-group row justify-content-between">
+		<input name="category" class="form-control col-6" type="text" placeholder="Categoria">
+		<input name="topic" class="form-control col-5" type="text" placeholder="Tema">
 	</div>
 	<div class="row justify-content-between">
 		<input class="col-4" type="submit" name="save-book" value="Agregar libro">
 		<input class="col-4" type="button" name="" value="Cancelar">
 	</div>
-
 </form>
 <?php 
 	include("create-autor-modal.php");

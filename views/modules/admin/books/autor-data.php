@@ -1,4 +1,4 @@
-''0<div class="form-group row">
+<div class="form-group row">
 	<h4 class="col-12">Datos del autor</h4>
 </div>
 <div class="form-group row justify-content-between">
