@@ -22,13 +22,25 @@
 		}
 
 #ver editoriales
-		/*public function create(){
-			$response = EditorialModel::creadeModel("editorial"); 
+		public function create(){
+			$response = EditorialModel::createModel("editorial"); 
 			
-			return $response;
+			/*foreach ($response as $row => $item) {
+	
+			echo'<tr>
+				<td>'.$item["editorial-name"].'</td></tr>';
+
+*/
+				foreach ($response as $value) {
+					# code...
+				print_r("  ");
+				print_r($value);
+				print_r("    ");
+				
+				}
+				unset($value)	;		
 			
-			
-		}*/
+		}
 	}
 
 ?>

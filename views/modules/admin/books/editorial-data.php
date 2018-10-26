@@ -1,6 +1,6 @@
 	<?php
-	/*require_once("../../../../controllers/EditorialController.php");
-  	  require_once("../../../../models/EditorialModel.php");*/
+		require_once("../../../../controllers/EditorialController.php");
+  	  require_once("../../../../models/EditorialModel.php");
   	?>
 
 <div class="form-group row">
@@ -9,14 +9,11 @@
 <div class="form-group row">
 	<select name="select-editorial" class="form-control select-editorial col-8">
 		<option value="" disabled selected>Seleccione Editorial</option>
-		<?php/*
-
-			$createEditorial = new EditorialController();
-      		$response = $createEditorial->create();
-      		foreach ($response as $value) ){
-				echo "<option value=" . $value . ">". $value ."</option>";
-			*/
+		<?php
 		
+		      $vistaUsuario = new EditorialController();
+		      $vistaUsuario -> create();
+      
 		 ?>
 		<option value="1">Patito</option>
 	</select>

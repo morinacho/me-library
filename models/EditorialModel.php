@@ -22,18 +22,17 @@ class EditorialModel{
 
 
 ###ver  editorial
-/*
+
 	public function createModel($table){
 			
-			$query=ConexionModel::conect()->prepare("SELECT nombre FROM $table  ");
-
-			$query->query();
- 			
-
-			return $query;
+			$query=ConexionModel::conect()->prepare("SELECT nombre FROM $table ");
+			$query->execute();
+			#$query->query();
+ 			return $query->fetchAll(PDO::FETCH_COLUMN, 0);
+			
 			 $query->close();
 
-	}*/
+	}
 	
 }
 
