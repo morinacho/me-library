@@ -40,8 +40,18 @@
 	<div class="form-group row justify-content-between">
 		<select name="select-autors" id="autor-add" class="form-control col-10">
 			<option value="none" disabled selected>Seleccionar autor</option>
-			<option value="Robert Resnick">Robert Resnick</option>
-			<option value="Pablo Risk">Pablo Risk</option>
+			<?php
+				require_once("../../../../controllers/AuthorController.php");
+	  	  		require_once("../../../../models/AuthorModel.php");
+				
+				$createAuthor = new AuthorController();
+	      		$author = $createAuthor->create();
+
+	      		foreach ($author as $key => $value) {
+	      			echo "<option value='".$value["id_autor"] ."'>".$value["apellido"]. " ". $value["nombre"] ."</option>";
+
+	      		}
+	      	?>	
 		</select>
 		<div class="col-2">
 			<a href="" class="material-icons" data-toggle="modal" data-target="#create-autor">person_add</a>
@@ -59,6 +69,7 @@
 
 	      		foreach ($editorials as $key => $value) {
 	      			echo "<option value='". $value["id_editorial"] ."'>". $value["nombre"] ."</option>";
+
 	      		}
 			 ?>
 		</select>

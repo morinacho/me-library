@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+	<?php
+		require_once("../../../../controllers/EditorialController.php");
+  	  require_once("../../../../models/EditorialModel.php");
+  	?>
+
+=======
+>>>>>>> 2d1d73a9ba73a13cfef8aeefaed8daab95aa7eae
 <div class="form-group row">
 	<h4 class="col-12">Datos de editorial</h4>
 </div>
@@ -5,6 +13,12 @@
 	<select name="select-editorial" class="form-control select-editorial col-8">
 		<option value="" disabled selected>Seleccione Editorial</option>
 		<?php
+<<<<<<< HEAD
+		
+		      $vistaUsuario = new EditorialController();
+		      $vistaUsuario -> create();
+      
+=======
 			require_once("../../../../controllers/EditorialController.php");
   	  		require_once("../../../../models/EditorialModel.php");
 			
@@ -14,6 +28,7 @@
       		foreach ($editorials as $key => $value) {
       			echo "<option value='". $key ."'>". $value["nombre"] ."</option>";
       		}
+>>>>>>> 2d1d73a9ba73a13cfef8aeefaed8daab95aa7eae
 		 ?>
 	</select>
 	<a href="" class="material-icons col-1" data-toggle="modal" id="add-new-editorial" data-target="#create-editorial">add</a>

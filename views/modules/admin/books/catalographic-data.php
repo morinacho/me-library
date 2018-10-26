@@ -7,6 +7,6 @@
 </div>
 
 <div class="form-group row justify-content-between">
-	<input name="category" class="form-control col-6" type="text" placeholder="Categoria">
+	
 	<input name="topic" class="form-control col-5" type="text" placeholder="Tema">
 </div>
