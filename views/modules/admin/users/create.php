@@ -29,7 +29,6 @@
 					<div class="form-group row justify-content-around">
 						
 						<input type="address" class="form-control col-5" id="user-address" name="user-address" placeholder="Direccion">
-						
 						<select class="form-control col-5" id="tipo-user" name="">
 							<option value="0" selected disabled>Selecctionar tipo</option>
 							<option value="1">Alumno</option>
@@ -79,7 +78,7 @@
 
 	if(isset($_POST["save-user"])){
 		$createuser = new UserController();
-		//$createuser->store();
-		$createuser ->create();
+		$createuser->store();
+		//$createuser ->create();
 	}
 ?>	
