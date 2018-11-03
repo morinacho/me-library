@@ -1,4 +1,4 @@
-<div class="col-2">
+<<div class="col-2">
 	<div class="card book">
 		<div class="card-body text-center">
 			<img src="../../assets/images/images.jpeg" class="img-fluid" alt="">

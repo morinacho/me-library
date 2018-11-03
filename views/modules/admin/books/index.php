@@ -18,7 +18,30 @@
   <div class="col-9 tab-show">
     <div class="tab-content row justify-content-end" id="v-pills-adminbook">
       <div class="tab-pane fade show active" id="v-pills-search" role="tabpanel">
+        <div class="col-2">
+  <div class="card book">
+    <div class="card-body text-center">
+      <?php
+        require_once("../../../../controllers/BookController.php");
+            require_once("../../../../models/BookModel.php");
         
+        $Book = new BookController();
+            $Book = $Book->create();
+
+            foreach ($Book as $key => $value) {
+              echo '
+        <span class="card-title mt-2 text-center">'.$value["titulo"].'</span>
+      <div class="card-footer row justify-content-around mt-2">
+        <a class="info material-icons col-4" data-toggle="tooltip" data-html="true" data-placement="bottom" title="'.$value["autor_nombre"].'
+        <a class="info material-icons col-4" data-toggle="tooltip" data-html="true" data-placement="bottom" title="Detalles<br>"'.$value["editorial_nombre"].'"<br>otra informacion<br>año">reorder</a>
+        <a class="info material-icons col-4" data-toggle="tooltip" data-html="true" data-placement="bottom" title="Disponible<br>No disponible">remove_red_eye</a>' ;
+          }
+          ?> 
+      </div>
+    </div>
+  </div>  
+</div>
+
       </div>
       <div class="tab-pane fade col-11" id="v-pills-newbook" role="tabpanel">
         <?php include("create.php") ?>

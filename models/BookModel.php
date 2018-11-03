@@ -4,11 +4,8 @@
 
 		public function storeModel($request){
 
-			//Enlaces de parametros
-			//Enlaces de parametros
 		 	$query = ConexionModel::conect()->prepare("INSERT INTO libro (isbn,titulo,tema_cdu,descripcion,volumen,ano,paginas,edicion,editorial_id_editorial,idioma_id_idioma) 
 		 		VALUES(:isbn,:titulo,:cdu,:descripcion,:volumen,:ano,:paginas,:edicion,'2',:id_idioma);
-		 	 
 		 	INSERT INTO libro_has_autor (libro_isbn,autor_id_autor) VALUES (:isbn,:id_autor)");
 				
 				
@@ -35,9 +32,26 @@
 				return false;
 			}
 			$query -> close();
-		
 		}
 
+
+		public function createModel(){
+			try{
+				$query = ConexionModel::conect()->prepare("
+				SELECT book.isbn,book.titulo,auth.apellido,auth.nombre,editorial.nombre  
+				FROM libro book,autor auth,editorial editorial,libro_has_autor libAut
+				WHERE book.editorial=editorial.id_editorial And
+				       book.isbn=libAut.libro_isbn And
+				        auth.id_autor=libAut.autor_id_autor");
+
+		        $query->execute();
+		        $response = $query->fetchAll();
+		        return $response;  
+			}
+			catch(PDOException $exception) {
+			    return "Error: " . $exception->getMessage();
+			}
+		}
 	}
 
 
