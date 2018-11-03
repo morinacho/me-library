@@ -18,6 +18,13 @@
 			else{
 				echo "error";
 			}
+
+			//header('Location:../views/modules/admin/books/index.php');	
+		}
+		
+		public function create(){
+			$response = UserModel::createModel(); 
+			return $response;
 		}
 	}
 ?>

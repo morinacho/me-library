@@ -8,14 +8,19 @@
 			<input type="lastname" class="form-control col-5" id="user-lastname" name="user-lastname" placeholder="Apellido">
 		</div>
 		<div class="form-group row justify-content-around">
-       		 <input type="text" class="form-control col-5" id="user-dni" name="user-dni" placeholder="Dni" onkeyup="copyOnPassword(event);">
+       		 <input type="number" class="form-control col-5" id="user-dni" name="user-dni" placeholder="Dni" onkeyup="copyOnPassword(event);">
        		 <input type="password" class="form-control col-5" id="user-password" name="user-password" disabled placeholder="********">
 		</div>
 		<div class="form-group row justify-content-around">
-			<input type="address" class="form-control col-3" id="user-address" name="user-address" placeholder="Direccion">
-			<input type="text" class="form-control col-3" id="user-phone" name="user-phone" placeholder="Telefono">
+			<input type="mail" class="form-control col-5" id="user-mail" name="user-mail" placeholder="Email">
+			<input type="text" class="form-control col-5" id="user-phone" name="user-phone" placeholder="Telefono">
+		</div>
+
+		<div class="form-group row justify-content-around">
 			
-			<select class="form-control col-3" id="tipo-user" name="">
+			<input type="address" class="form-control col-5" id="user-address" name="user-address" placeholder="Direccion">
+			
+			<select class="form-control col-5" id="tipo-user" name="">
 				<option value="0" selected disabled>Selecctionar tipo</option>
 				<option value="1">Alumno</option>
 				<option value="2">Docente</option>
