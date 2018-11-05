@@ -48,7 +48,7 @@
 	      		$author = $createAuthor->create();
 
 	      		foreach ($author as $key => $value) {
-	      			echo "<option value='".$value["id_autor"] ."'>".$value["apellido"]. " ". $value["nombre"] ."</option>";
+	      			echo "<option value='".$value["autor_id"] ."'>".$value["autor_apellido"]. " ". $value["autor_nombre"] ."</option>";
 
 	      		}
 	      	?>	
