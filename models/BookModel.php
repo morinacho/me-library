@@ -4,8 +4,8 @@
 
 		public function storeModel($request){
 
-		 	$query = ConexionModel::conect()->prepare("INSERT INTO libro (isbn,titulo,tema_cdu,descripcion,volumen,ano,paginas,edicion,editorial_id_editorial,idioma_id_idioma) 
-		 		VALUES(:isbn,:titulo,:cdu,:descripcion,:volumen,:ano,:paginas,:edicion,'2',:id_idioma);
+		 	$query = ConexionModel::conect()->prepare("INSERT INTO libro (libro_isbn,libro_titulo,tema_cdu,libro_descripcion,libro_volumen,libro_anio,libro_paginas,libro_edicion,editorial_id,idioma_id) 
+		 		VALUES(:isbn,:titulo,:cdu,:descripcion,:volumen,:anio,:paginas,:edicion,'1',:id_idioma);
 		 	INSERT INTO libro_has_autor (libro_isbn,autor_id_autor) VALUES (:isbn,:id_autor)");
 				
 				
@@ -16,7 +16,7 @@
 			$query -> bindParam(":cdu",$request["cdu"] , PDO::PARAM_INT);
 			$query -> bindParam(":descripcion", $request["book-description"], PDO::PARAM_STR);
 			$query -> bindParam(":volumen", $request["book-volumen"], PDO::PARAM_INT);
-			$query -> bindParam(":ano", $request["book-year"], PDO::PARAM_STR);
+			$query -> bindParam(":anio", $request["book-year"], PDO::PARAM_STR);
 			$query -> bindParam(":paginas", $request["book-pag"], PDO::PARAM_INT);
 			$query -> bindParam(":edicion", $request["book-edicion"], PDO::PARAM_STR);
 			$query -> bindParam(":id_autor", $request["select-autors"], PDO::PARAM_INT);
@@ -38,11 +38,11 @@
 		public function createModel(){
 			try{
 				$query = ConexionModel::conect()->prepare("
-				SELECT book.isbn,book.titulo,auth.apellido,auth.nombre,editorial.nombre  
-				FROM libro book,autor auth,editorial editorial,libro_has_autor libAut
-				WHERE book.editorial=editorial.id_editorial And
-				       book.isbn=libAut.libro_isbn And
-				        auth.id_autor=libAut.autor_id_autor");
+				SELECT book.libro_isbn,book.libro_titulo,auth.autor_apellido,auth.autor_nombre,edi.nombre  
+				FROM libro book,autor auth,editorial edi,libro_has_autor libAut
+				WHERE book.editorial_id=edi.id_editorial And
+				       book.libro_isbn=libAut.libro_isbn And
+				        auth.autor_id=libAut.autor_id_autor");
 
 		        $query->execute();
 		        $response = $query->fetchAll();
