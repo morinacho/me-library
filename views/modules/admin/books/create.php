@@ -80,7 +80,6 @@
 	</div>
 
 	<input type="text" id="tema_cdu" name="cdu"  placeholder="CDU" value="" disabled>
-
 	<div class="form-group row justify-content-between">
 		
 		<select name="tema" id="tema" class="form-control tema-editorial col-10" onchange="copyOnPassword(event);">
