@@ -3,8 +3,6 @@
   include("../header.php");
 
 ?>
-
-
 <div class="row">
   <div class="col-2 menu-loans">
     <div class="nav flex-column nav-pills mt-4" id="v-pills-adminbook-tab" role="tablist" aria-orientation="vertical">
@@ -18,40 +16,39 @@
   <div class="col-9 tab-show">
     <div class="tab-content row justify-content-end" id="v-pills-adminbook">
       <div class="tab-pane fade show active" id="v-pills-search" role="tabpanel">
-        <div class="col-2">
-  <div class="card book">
-    <div class="card-body text-center">
-      <?php
-        require_once("../../../../controllers/BookController.php");
-            require_once("../../../../models/BookModel.php");
+        <div class="row">
+          
         
-        $Book = new BookController();
-            $Book = $Book->create();
-
-            foreach ($Book as $key => $value) {
-              echo '
-        <span class="card-title mt-2 text-center">'.$value["titulo"].'</span>
-      <div class="card-footer row justify-content-around mt-2">
-        <a class="info material-icons col-4" data-toggle="tooltip" data-html="true" data-placement="bottom" title="'.$value["autor_nombre"].'
-        <a class="info material-icons col-4" data-toggle="tooltip" data-html="true" data-placement="bottom" title="Detalles<br>"'.$value["editorial_nombre"].'"<br>otra informacion<br>año">reorder</a>
-        <a class="info material-icons col-4" data-toggle="tooltip" data-html="true" data-placement="bottom" title="Disponible<br>No disponible">remove_red_eye</a>' ;
-          }
-          ?> 
+        <?php
+          require_once("../../../../controllers/BookController.php");
+          require_once("../../../../models/BookModel.php");
+          
+          $Book = new BookController();
+              $Book = $Book->create();
+              foreach ($Book as $key => $value) {
+                echo '<div class="col-2">
+                        <div class="card book">
+                          <div class="card-body text-center">
+                            <img src="../../../assets/images/cover.png" class="img-fluid" alt="">
+                                <span style="color:blue">'.$value["libro_titulo"].'</span> 
+                                  <a class="info material-icons col-4" data-toggle="tooltip" data-html="true" data-placement="bottom" title="'.$value["autor_nombre"].'""'.$value["autor_apellido"].'" >perm_identity</a>
+                                  <a class="info material-icons col-4" data-toggle="tooltip" data-html="true" data-placement="bottom" title="'.$value["nombre"].'">reorder</a>
+                                  <a class="info material-icons col-4" data-toggle="tooltip" data-html="true" data-placement="bottom" title="Disponible<br>No disponible">remove_red_eye</a>
+                           </div> 
+                       </div>  
+                    </div>' ;
+            }
+        ?>  
+      </div>
       </div>
     </div>
-  </div>  
-</div>
-
-      </div>
-      <div class="tab-pane fade col-11" id="v-pills-newbook" role="tabpanel">
-        <?php include("create.php") ?>
-      </div>
-      <div class="tab-pane fade" id="v-pills-viewbook" role="tabpanel">...</div>
-      <div class="tab-pane fade" id="v-pills-buybook" role="tabpanel">...</div>
-      <div class="tab-pane fade" id="v-pills-digitalbook" role="tabpanel">...</div>
+    <div class="tab-pane fade col-11" id="v-pills-newbook" role="tabpanel">
+      <?php include("create.php") ?>
     </div>
+    <div class="tab-pane fade" id="v-pills-viewbook" role="tabpanel">...</div>
+    <div class="tab-pane fade" id="v-pills-buybook" role="tabpanel">...</div>
+    <div class="tab-pane fade" id="v-pills-digitalbook" role="tabpanel">...</div>
   </div>
 </div>
-
 
 <?php   include("../foot.php"); ?>
