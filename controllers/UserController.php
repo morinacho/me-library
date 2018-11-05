@@ -9,10 +9,11 @@
 						  	 "user-address"   => $_POST["user-address"],
 						  	 "user-phone"     => $_POST["user-phone"],
 						  	 "user-mail"      => $_POST["user-mail"],
-						  	 "user-password"  => $_POST["user-password"]);
+						  	 "user-password"  => $_POST["user-dni"]);
 
 			$response = UserModel::storeModel($request);
-			/*
+			
+			
 			if ($response){
 				echo "Datos guardados";
 			}
@@ -21,7 +22,7 @@
 			}
 
 			//header('Location:../views/modules/admin/books/index.php');	
-			*/
+			
 		}
 		/*
 		public function create(){

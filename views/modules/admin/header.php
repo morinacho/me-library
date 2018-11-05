@@ -22,8 +22,8 @@
 				<a class="nav-link material-icons" data-toggle="dropdown" href="#" role="" aria-haspopup="true" aria-expanded="false" data-toggle="tooltip" data-html="true" data-placement="bottom-left" title="Herramientas">settings</a>
 				<div class="dropdown-menu dropdown-menu-right">
 					<a class="dropdown-item" href="../loans/index.php">Administrar prestamos</a>
-					<a class="dropdown-item" href="books/index.php">Administrar libros</a>
-					<a class="dropdown-item" href="../users/index.php">Administrar usuarios</a>
+					<a class="dropdown-item" href="../books/index.php">Administrar libros</a>
+					<a class="dropdown-item" href="users/index.php">Administrar usuarios</a>
 					<a class="dropdown-item" href="#">Administrar web</a>
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" href="#">Salir</a>

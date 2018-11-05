@@ -5,25 +5,16 @@
 		
 		public function storeModel($request){
 			//Enlaces de parametros
-			$query = ConexionModel::conect()->prepare("INSERT INTO usuario (dni,nombre,apellido,direccion,telefono,mail) VALUES (:dni, :name, :lastname, :address, :phone, :mail");
-			$query -> bindParam(":dni", $request["user-dni"], PDO::PARAM_INT);
-			$query -> bindParam(":name", $request["user-name"], PDO::PARAM_STR);
-			$query -> bindParam(":lastname", $request["user-lastname"], PDO::PARAM_STR);
-			$query -> bindParam(":address", $request["user-address"], PDO::PARAM_STR);
-			$query -> bindParam(":phone", $request["user-phone"], PDO::PARAM_STR);
-			$query -> bindParam(":mail", $request["user-mail"], PDO::PARAM_STR);
-			$query -> execute();
+			$query = ConexionModel::conect()->prepare("INSERT INTO usuario (usuario_dni,usuario_nombre,usuario_apellido,usuario_direccion,usuario_telefono,usuario_mail, usuario_password) VALUES (:usuario_dni, :usuario_nombre, :usuario_apellido, :usuario_direccion, :usuario_telefono, :usuario_mail, :usuario_password)");
 			
+			$query -> bindParam(":usuario_dni", $request["user-dni"], PDO::PARAM_INT);
+			$query -> bindParam(":usuario_nombre", $request["user-name"], PDO::PARAM_STR);
+			$query -> bindParam(":usuario_apellido", $request["user-lastname"], PDO::PARAM_STR);
+			$query -> bindParam(":usuario_direccion", $request["user-address"], PDO::PARAM_STR);
+			$query -> bindParam(":usuario_telefono", $request["user-phone"], PDO::PARAM_STR);
+			$query -> bindParam(":usuario_mail", $request["user-mail"], PDO::PARAM_STR);
+			$query -> bindParam(":usuario_password", $request["user-dni"], PDO::PARAM_INT);
 			
-			
-			/*
-			$query = ConexionModel::conect()->prepare("INSERT INTO usuario (dni, nombre, apellido, direccion, telefono, mail, password) VALUES (:dni, :name, :lastname, :address, :phone, :mail, :password)");
-			$query -> bindParam(":name", $request["user-name"], PDO::PARAM_STR);
-			$query -> bindParam(":lastname", $request["user-lastname"], PDO::PARAM_STR);
-			$query -> bindParam(":address", $request["user-address"], PDO::PARAM_STR);
-			$query -> bindParam(":phone", $request["user-phone"], PDO::PARAM_STR);
-			$query -> bindParam(":mail", $request["user-mail"], PDO::PARAM_STR);
-			$query -> bindParam(":password", $request["user-password"], PDO::PARAM_STR);
 			if($query -> execute()){
 				return true;
 			}
@@ -32,9 +23,10 @@
 			}
 			
 			$query -> close();
-		*/
+			
 
 		}
+
 		/*
 		public function createModel(){
 			try{
