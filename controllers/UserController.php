@@ -12,12 +12,22 @@
 						  	 "user-password"  => $_POST["user-password"]);
 
 			$response = UserModel::storeModel($request);
+			/*
 			if ($response){
 				echo "Datos guardados";
 			}
 			else{
 				echo "error";
 			}
+
+			//header('Location:../views/modules/admin/books/index.php');	
+			*/
 		}
+		/*
+		public function create(){
+			$response = UserModel::createModel(); 
+			return $response;
+		}
+		*/
 	}
 ?>
