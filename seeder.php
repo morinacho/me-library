@@ -6,7 +6,11 @@
 		 * Create data base
 		 */
 		public function create(){
-			
+			$query = ConexionModel::conect()->prepare("");
+
+			if($query -> execute()){
+				echo "La base de datos ha sido creado";
+			}
 		}
 
 		/*
@@ -51,17 +55,6 @@
 			    INSERT INTO editorial (editorial_nombre, editorial_direccion_fiscal) VALUES ('BOOKET','Calle Falsa');
 			    INSERT INTO editorial (editorial_nombre, editorial_direccion_fiscal) VALUES ('DEUSTO','Calle Falsa');
 			    INSERT INTO editorial (editorial_nombre, editorial_direccion_fiscal) VALUES ('CLICK EDICIONES','Calle Falsa')
-				/* Cargo libros */
-				INSERT INTO libro (libro_isbn, libro_titulo, libro_descripcion, libro_volumen, libro_registro, libro_anio, libro_paginas, libro_edicion, editorial_id, tema_cdu, idioma_id) 
-					VALUES ('', '', '', '', '', '', '', '', '', '', '', '');
-				INSERT INTO libro (libro_isbn, libro_titulo, libro_descripcion, libro_volumen, libro_registro, libro_anio, libro_paginas, libro_edicion, editorial_id, tema_cdu, idioma_id) 
-					VALUES ('', '', '', '', '', '', '', '', '', '', '', '');
-				INSERT INTO libro (libro_isbn, libro_titulo, libro_descripcion, libro_volumen, libro_registro, libro_anio, libro_paginas, libro_edicion, editorial_id, tema_cdu, idioma_id) 
-					VALUES ('', '', '', '', '', '', '', '', '', '', '', '');
-				INSERT INTO libro (libro_isbn, libro_titulo, libro_descripcion, libro_volumen, libro_registro, libro_anio, libro_paginas, libro_edicion, editorial_id, tema_cdu, idioma_id) 
-					VALUES ('', '', '', '', '', '', '', '', '', '', '', '');
-				INSERT INTO libro (libro_isbn, libro_titulo, libro_descripcion, libro_volumen, libro_registro, libro_anio, libro_paginas, libro_edicion, editorial_id, tema_cdu, idioma_id) 
-					VALUES ('', '', '', '', '', '', '', '', '', '', '', '')
 			");
 
 			if($query -> execute()){
@@ -72,24 +65,63 @@
 		/*
 		 * Recover data
 		 */
-		public function get($table, $value){
-			$query = ConexionModel::conect()->prepare();
+		public function get($table, $column, $value){
+			try{
+				$query = ConexionModel::conect()->prepare( "SELECT {$column} FROM {$table}");
+
+		        $query->execute();
+		        
+		        $response = $query->fetchAll(); 
+
+		        foreach ($response as $key => $value) {
+		        	echo $value[0]." - "; 
+		        }
+		         
+			}
+			catch(PDOException $exception) {
+			    return "Error: " . $exception->getMessage();
+			}
 		}
 
-
+		/*
+		 * Delete data
+		 */
+		public function delete(){
+			$query = ConexionModel::conect()->prepare("
+				DELETE FROM prestamo;
+				DELETE FROM libro_has_autor;
+				DELETE FROM libro_has_catalogo;
+				DELETE FROM libro;
+				DELETE FROM autor;
+				DELETE FROM editorial;
+				DELETE FROM tema;
+				DELETE FROM idioma;
+				DELETE FROM administrador;
+				DELETE FROM usuario;
+			");
+			if ($query->execute()) {
+				echo "Base de datos limpia";
+			}
+		}
 	}
 ?>
 
-
-
-if (isset($_POST['load'])) {
-
-	
-}
-
-
-
 <form method="post">
-	<input type="text" hidden value="ALIENTA EDITORIAL">
 	<input type="submit" value="Cargar" name="load">
 </form>
+
+<form method="post">
+	<input type="submit" value="Limpiar" name="delete">
+</form>
+
+<?php 
+	$seeder = new Seeder();
+	
+	if (isset($_POST['load'])) {
+		$seeder->load();
+	}
+
+	if (isset($_POST['delete'])) {
+		$seeder->delete();
+	}
+?>
