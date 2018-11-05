@@ -93,7 +93,6 @@
 
 	      		foreach ($create as $key => $value) {
 	      			echo "<option value='". $value["tema_cdu"] ."'>". $value["tema_nombre"] ."</option>";
-					
 	      		}
 			 ?>
 		</select>
