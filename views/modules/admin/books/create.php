@@ -126,6 +126,7 @@
 	if(isset($_POST["save-book"])){
 		$librito = new BookController();
 		$librito->store();
+		header("location:index.php ")
 	}
 ?>
 

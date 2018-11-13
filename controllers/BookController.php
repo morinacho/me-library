@@ -24,6 +24,15 @@
 			return $response;
 		}
 
+
+		public function search(){
+			$request=array("book-title" =>$_POST["book-title"]);
+
+			$response=BookModel::searchBookModel($request); 
+
+			return $response;
+		}
+
 	}
 
 

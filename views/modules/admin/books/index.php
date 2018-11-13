@@ -16,7 +16,12 @@
   <div class="col-9 tab-show">
     <div class="tab-content row justify-content-end" id="v-pills-adminbook">
       <div class="tab-pane fade show active" id="v-pills-search" role="tabpanel">
-        <div class="row">
+        <input name="book-title" id="book-title" class="form-control col-12" type="text" placeholder="Titulo del libro" required>
+        <input class="col-4" type="submit" name="search" value="buscar" >
+
+
+
+
         <?php
           require_once("../../../../controllers/BookController.php");
           require_once("../../../../models/BookModel.php");
@@ -49,4 +54,19 @@
   </div>
 </div>
 
+<?php 
+  
+  require_once("../../../../controllers/BookController.php");
+  require_once("../../../../models/BookModel.php");
+
+  if(isset($_POST["search"])){
+    $librito = new BookController();
+    $libritoBuscado=$librito->search();
+    foreach ($libritoBuscado as $key => $value) {
+      echo'libro:' .$value["book-title"].'';
+
+
+    }
+  }
+?>
 <?php   include("../foot.php"); ?>

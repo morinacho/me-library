@@ -52,6 +52,25 @@
 			    return "Error: " . $exception->getMessage();
 			}
 		}
+
+
+		public function searchBookModel($name){
+
+			try{
+				$query = ConexionModel::conect()->prepare("
+					SELECT book.libro_titulo
+					FROM libro book
+					WHERE book.libro_titulo=:titulo");
+				$query -> bindParam(":titulo", $name["book-title"], PDO::PARAM_STR);
+		        $query->execute();
+		        $response = $query->fetchAll();
+		        return $response;  
+			}
+			catch(PDOException $exception) {
+			    return "Error: " . $exception->getMessage();
+			}
+
+		}
 	}
 
 
