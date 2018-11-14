@@ -6,19 +6,42 @@
 		 * Create data base
 		 */
 		public function create(){
-			$query = ConexionModel::conect()->prepare("");
+			$servername = "localhost";
+			$username = "root";
+			$password = "";
 
-			if($query -> execute()){
-				echo "La base de datos ha sido creado";
+			try {
+			    $conexion = new PDO("mysql:host=$servername", $username, $password);
+			    // set the PDO error mode to exception
+			    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			    //$conexion->exec("CREATE DATABASE melibrary DEFAULT CHARACTER SET utf8;");
+			    
+			    $query = ConexionModel::conect()->exec("
+					CREATE TABLE tema (
+						tema_cdu INT NOT NULL,
+					  	tema_nombre VARCHAR(45) NULL,
+					  	PRIMARY KEY (tema_cdu),
+					  	UNIQUE INDEX cdu_UNIQUE (tema_cdu ASC))
+
+					  	
+			    ");
+
+			    $query->execute();
+
+			    echo "La base de datos has sido creada";
 			}
+			catch(PDOException $e){
+		    	echo $e->getMessage();
+		    }
+
+			$conexion = null;	 
 		}
 
 		/*
 		 * Load data base
 		 */
 		public function load(){
-			$query = ConexionModel::conect()->prepare(
-			"
+			$query = ConexionModel::conect()->prepare("
 				INSERT INTO usuario (usuario_dni, usuario_nombre, usuario_apellido, usuario_direccion, usuario_telefono, usuario_mail, usuario_password) 
 				  	VALUES ( '32145987', 'Juan', 'Gil','Calle false 1234', '2657556641', 'juangil@gmail.com', '32145987');
 			    INSERT INTO usuario (usuario_dni, usuario_nombre, usuario_apellido, usuario_direccion, usuario_telefono, usuario_mail, usuario_password) 
@@ -114,6 +137,10 @@
 	<input type="submit" value="Limpiar" name="delete">
 </form>
 
+<form method="post">
+	<input type="submit" value="Crear" name="create">
+</form>
+
 <?php 
 	$seeder = new Seeder();
 	
@@ -123,5 +150,9 @@
 
 	if (isset($_POST['delete'])) {
 		$seeder->delete();
+	}
+
+	if (isset($_POST['create'])) {
+		$seeder->create();
 	}
 ?>
