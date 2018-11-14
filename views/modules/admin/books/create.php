@@ -79,20 +79,44 @@
 		<textarea name="description-extra" class="col-12" name="" id="" cols="100%" rows="3" placeholder="Ingresar descripcion"></textarea>	
 	</div>
 
+	<input type="text" id="tema_cdu" name="cdu"  placeholder="CDU" value="" disabled>
 	<div class="form-group row justify-content-between">
-		<input name="cdu" class="form-control col-5" type="number" placeholder="CDU">
-		<input name="topographic-signature" class="form-control col-6" type="text" placeholder="Signatura topografica">
-	</div>
+		
+		<select name="tema" id="tema" class="form-control tema-editorial col-10" onchange="copyOnPassword(event);">
+			<option value="" disabled selected>Seleccione tema</option>
+			<?php
+				require_once("../../../../controllers/TemaController.php");
+	  	  		require_once("../../../../models/TemaModel.php");
+				
+				$createTema = new TemaController();
+	      		$create = $createTema->create();
 
-	<div class="form-group row justify-content-between">
-		<input name="category" class="form-control col-6" type="text" placeholder="Categoria">
-		<input name="topic" class="form-control col-5" type="text" placeholder="Tema">
+	      		foreach ($create as $key => $value) {
+	      			echo "<option value='". $value["tema_cdu"] ."'>". $value["tema_nombre"] ."</option>";
+	      		}
+			 ?>
+		</select>
+
 	</div>
 	<div class="row justify-content-between">
 		<input class="col-4" type="submit" name="save-book" value="Agregar libro">
 		<input class="col-4" type="button" name="" value="Cancelar">
 	</div>
 </form>
+			<script>
+				// Copiar lo que tiene dni en password
+				function copyOnPassword(event){
+					$('#tema_cdu').val(($('#tema').val()));
+
+					//Function which allows only the entry numbers
+					$('.justNumbers').keypress(function(e){
+						var keynum = window.event ? window.event.keyCode : e.which;
+				   		if ((keynum == 48) || (keynum == 56))
+				        	return true;
+				    	return /\d/.test(String.fromCharCode(keynum));
+					});
+				}
+			</script>
 <?php 
 	include("create-autor-modal.php");
 	include("create-editorial-modal.php"); 
@@ -102,6 +126,7 @@
 	if(isset($_POST["save-book"])){
 		$librito = new BookController();
 		$librito->store();
+		header("location:index.php ")
 	}
 ?>
 

@@ -73,11 +73,11 @@
 			    INSERT INTO idioma (idioma_descripcion) VALUES ('Ingles');
 			    INSERT INTO idioma (idioma_descripcion) VALUES ('Portuguez');
 				/* Cargo editoriales */
-			    INSERT INTO editorial (editorial_nombre, editorial_direccion_fiscal) VALUES ('ALIENTA EDITORIAL','Calle Falsa');
-			    INSERT INTO editorial (editorial_nombre, editorial_direccion_fiscal) VALUES ('AUSTRAL','Calle Falsa');
-			    INSERT INTO editorial (editorial_nombre, editorial_direccion_fiscal) VALUES ('BOOKET','Calle Falsa');
-			    INSERT INTO editorial (editorial_nombre, editorial_direccion_fiscal) VALUES ('DEUSTO','Calle Falsa');
-			    INSERT INTO editorial (editorial_nombre, editorial_direccion_fiscal) VALUES ('CLICK EDICIONES','Calle Falsa')
+			    INSERT INTO editorial (nombre, direccion_fiscal) VALUES ('ALIENTA EDITORIAL','Calle Falsa');
+			    INSERT INTO editorial (nombre, direccion_fiscal) VALUES ('AUSTRAL','Calle Falsa 567');
+			    INSERT INTO editorial (nombre, direccion_fiscal) VALUES ('BOOKET','Calle Falsa 123');
+			    INSERT INTO editorial (nombre, direccion_fiscal) VALUES ('DEUSTO','Calle Falsa');
+			    INSERT INTO editorial (nombre, direccion_fiscal) VALUES ('CLICK EDICIONES','Calle Falsa98')
 			");
 
 			if($query -> execute()){
