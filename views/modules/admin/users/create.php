@@ -79,6 +79,6 @@
 	if(isset($_POST["save-user"])){
 		$createuser = new UserController();
 		$createuser->store();
-		//$createuser ->create();
+		$createuser ->create();
 	}
 ?>	
