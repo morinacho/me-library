@@ -16,10 +16,10 @@
 			$query -> bindParam(":usuario_password", $request["user-dni"], PDO::PARAM_INT);
 			
 			if($query -> execute()){
-				return true;
+				return "success";
 			}
 			else{
-				return false;
+				return "error";
 			}
 			
 			$query -> close();
@@ -27,10 +27,10 @@
 
 		}
 
-		/*
+		
 		public function createModel(){
 			try{
-				$query = ConexionModel::conect()->prepare("SELECT dni, nombre, apellido,direccion,telefono,mail FROM usuario ORDER BY apellido");			 
+				$query = ConexionModel::conect()->prepare("SELECT usuario_dni, usuario_nombre, usuario_apellido,usuario_direccion,ususario_telefono,usuario_mail FROM usuario ORDER BY apellido");			 
 		        $query->execute();
 		        $response = $query->fetchAll();
 		        return $response;  
@@ -39,6 +39,6 @@
 			    return "Error: " . $exception->getMessage();
 			}
 		}
-		*/
+		
 	}
 ?>
