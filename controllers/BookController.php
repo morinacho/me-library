@@ -3,9 +3,10 @@
 	class BookController{
 ##insertar libro 
 		public function store(){
+			if(isset($_POST["save-book"])){
 			$request=array("isbn"          => $_POST["isbn"],
 							"book-title"   => $_POST["book-title"],
-							"cdu"          => $_POST["cdu"],
+							"select-tema"  => $_POST["select-tema"],
 						   	"book-volumen" => $_POST["book-volumen"],
 						    "book-edicion" => $_POST["book-edicion"],
 						  	"book-year"    => $_POST["book-year"],
@@ -15,8 +16,11 @@
 		               "select-editorial"  => $_POST["select-editorial"],
 		           		"select-autors"       => $_POST["select-autors"]);												
 
-			$response = BookModel::storeModel($request); 
-
+			$response = BookModel::storeModel($request);
+					if ($response=="success") {
+						header("location:index.php?action=ok");
+					}
+			} 
 		}
 
 		public function create(){
@@ -26,11 +30,13 @@
 
 
 		public function search(){
+			if(isset($_POST["search"])){
 			$request=array("book-title" =>$_POST["book-title"]);
 
 			$response=BookModel::searchBookModel($request); 
 
 			return $response;
+		}
 		}
 
 	}

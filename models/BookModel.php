@@ -13,7 +13,7 @@
 			
 			$query -> bindParam(":isbn", $request["isbn"], PDO::PARAM_INT);
 			$query -> bindParam(":titulo", $request["book-title"], PDO::PARAM_STR);
-			$query -> bindParam(":cdu",$request["cdu"] , PDO::PARAM_INT);
+			$query -> bindParam(":cdu",$request["select-tema"] , PDO::PARAM_INT);
 			$query -> bindParam(":descripcion", $request["book-description"], PDO::PARAM_STR);
 			$query -> bindParam(":volumen", $request["book-volumen"], PDO::PARAM_INT);
 			$query -> bindParam(":anio", $request["book-year"], PDO::PARAM_STR);
@@ -25,11 +25,11 @@
 
 
 			if($query -> execute()){
-				return true;
-
+				return "success";
+				
 			}
 			else{
-				return false;
+				return "error";
 			}
 			$query -> close();
 		}
@@ -60,7 +60,7 @@
 				$query = ConexionModel::conect()->prepare("
 					SELECT book.libro_titulo
 					FROM libro book
-					WHERE book.libro_titulo=:titulo");
+					WHERE book.libro_titulo=:titulo;");
 				$query -> bindParam(":titulo", $name["book-title"], PDO::PARAM_STR);
 		        $query->execute();
 		        $response = $query->fetchAll();

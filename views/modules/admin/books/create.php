@@ -82,7 +82,7 @@
 	<input type="text" id="tema_cdu" name="cdu"  placeholder="CDU" value="" disabled>
 	<div class="form-group row justify-content-between">
 		
-		<select name="tema" id="tema" class="form-control tema-editorial col-10" onchange="copyOnPassword(event);">
+		<select name="select-tema" id="tema" class="form-control tema col-10" onchange="copyOnPassword(event);">
 			<option value="" disabled selected>Seleccione tema</option>
 			<?php
 				require_once("../../../../controllers/TemaController.php");
@@ -123,11 +123,11 @@
 	require_once("../../../../controllers/BookController.php");
 	require_once("../../../../models/BookModel.php");
 
-	if(isset($_POST["save-book"])){
+	
 		$librito = new BookController();
 		$librito->store();
-		header("location:index.php ")
-	}
+		
+	
 ?>
 
 
