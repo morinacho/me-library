@@ -46,7 +46,7 @@
        <?php //
 include("create.php") ;?>
     </div>
-    <div class="tab-pane fade" id="v-pills-search" role="tabpanel">
+    <div class="tab-pane fade col-11" id="v-pills-search" role="tabpanel">
     <?php //
 include("viewBook.php") ;?>
     </div>
