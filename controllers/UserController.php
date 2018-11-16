@@ -1,8 +1,9 @@
 <?php 
 
 	class UserController{
-		
+	##Insertar Usuario	
 		public function store(){
+			if(isset($_POST["save-user"])){
 			$request = array("user-dni"       => $_POST["user-dni"],
 						  	 "user-name"      => $_POST["user-name"],
 						  	 "user-lastname"  => $_POST["user-lastname"],
@@ -12,23 +13,17 @@
 						  	 "user-password"  => $_POST["user-dni"]);
 
 			$response = UserModel::storeModel($request);
-			
-			
-			if ($response){
-				echo "Datos guardados";
+					if ($response == "success"){
+						//header("location:index.php?action=ok");
+					}
 			}
-			else{
-				echo "error";
-			}
-
-			//header('Location:../views/modules/admin/books/index.php');	
-			
 		}
-		/*
+
 		public function create(){
 			$response = UserModel::createModel(); 
 			return $response;
 		}
-		*/
+		
+		
 	}
 ?>
