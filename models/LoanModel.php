@@ -6,7 +6,7 @@
  													   VALUES (:fechaEntrega, :fechaDevolucion, :usuario_dni, :libro_isbn)");
 
 			$fechaPrestamo = date("Y-m-d H:i:s");
-			$fechaDevolucion = strtotime ( '+3 day' , strtotime ( $fechaPrestamo ) ) ;
+			$fechaDevolucion = strtotime ( '+7 day' , strtotime ( $fechaPrestamo ) ) ;
 			$fechaDevolucion = date ( 'Y-m-j' , $fechaDevolucion );
 			
 			$query -> bindParam(":fechaEntrega", $fechaPrestamo, PDO::PARAM_STR);
@@ -16,7 +16,7 @@
 
 
 			if($query -> execute()){
-				return "success";
+				return '<div class="alert alert-success" role="alert">Prestamo realizado<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
 				
 			}
 			else{

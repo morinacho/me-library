@@ -1,4 +1,4 @@
-<div class="form-group row">
+<!--<div class="form-group row">
 	<h4 class="col-12">Datos del libro</h4>
 </div>
 
@@ -34,4 +34,4 @@
     		<input name="cover-img" type="file" class="form-control-file" id="cover-img">
   		</div>
 	</div>
-</div>
+</div> -->

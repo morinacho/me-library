@@ -5,8 +5,9 @@
 		public function storeModel($request){
 
 		 	$query = ConexionModel::conect()->prepare("INSERT INTO libro (libro_isbn,libro_titulo,tema_cdu,libro_descripcion,libro_volumen,libro_anio,libro_paginas,libro_edicion,editorial_id,idioma_id) 
-		 		VALUES(:isbn,:titulo,:cdu,:descripcion,:volumen,:anio,:paginas,:edicion,:id_editorial,:id_idioma);
-		 	INSERT INTO libro_has_autor (libro_isbn,autor_id_autor) VALUES (:isbn,:id_autor)");
+		 											   VALUES(:isbn,:titulo,:cdu,:descripcion,:volumen,:anio,:paginas,:edicion,:id_editorial,:id_idioma);
+		 											   INSERT INTO libro_has_autor (libro_isbn,autor_id_autor) 
+		 											   VALUES (:isbn,:id_autor)");
 				
 				
 			//Enlaces de parametros

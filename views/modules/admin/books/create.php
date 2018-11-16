@@ -74,10 +74,7 @@
 			 ?>
 		</select>
 		<a href="" class="material-icons col-1" data-toggle="modal" id="add-new-editorial" data-target="#create-editorial">add</a>
-	</div>
-	<div class="form-group row">
-		<textarea name="description-extra" class="col-12" name="" id="" cols="100%" rows="3" placeholder="Ingresar descripcion"></textarea>	
-	</div>
+	</div> 
 
 	<input type="text" id="tema_cdu" name="cdu"  placeholder="CDU" value="" disabled>
 	<div class="form-group row justify-content-between">

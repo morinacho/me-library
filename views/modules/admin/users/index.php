@@ -13,7 +13,7 @@
   </div>
   <div class="col-9 row tab-show">
     <div class="tab-content justify-content-end" id="v-pills-tabContent">
-      <div class="tab-pane fade show active col-4 row" id="v-pills-search" role="tabpanel">              
+      <div class="tab-pane fade show active col-6 row" id="v-pills-search" role="tabpanel">              
         <?php
           require_once("../../../../controllers/UserController.php");
           require_once("../../../../models/UserModel.php");
@@ -24,10 +24,8 @@
                         <div class="card user">
                           <div class="card-body ">
                             <img src="../../../assets/images/Userimagen.jpeg" class="img-fluid" alt="">  
-                            <span style="font-size:16pt" style="color:black" style="font-weight"">'.$value["usuario_nombre"]." ". $value["usuario_apellido"].'</span>                            
-                                  <a class="info material-icons col-4" data-toggle="tooltip" data-html="true" data-placement="bottom" title="'.$value["usuario_nombre"]." ".$value["usuario_apellido"].'>perm_identity</a>
-                                  <a class="info material-icons col-4" data-toggle="tooltip" data-html="true" data-placement="bottom" title="'.$value["usuario_nombre"].'">reorder</a>
-                                  <a class="info material-icons col-4" data-toggle="tooltip" data-html="true" data-placement="bottom" title="Disponible<br>No disponible">remove_red_eye</a>
+                            <span style="font-size:16px" style="color:black">'.$value["usuario_nombre"]." ". $value["usuario_apellido"].'</span>                            
+                                   
                            </div> 
                        </div>  
                     </div>' ;   }

@@ -5,7 +5,8 @@
 		
 		public function storeModel($request){
 			//Enlaces de parametros
-			$query = ConexionModel::conect()->prepare("INSERT INTO usuario (usuario_dni,usuario_nombre,usuario_apellido,usuario_direccion,usuario_telefono,usuario_mail, usuario_password) VALUES (:usuario_dni, :usuario_nombre, :usuario_apellido, :usuario_direccion, :usuario_telefono, :usuario_mail, :usuario_password)");
+			$query = ConexionModel::conect()->prepare("INSERT INTO usuario (usuario_dni,usuario_nombre,usuario_apellido,usuario_direccion,usuario_telefono,usuario_mail, usuario_password) 
+													   VALUES (:usuario_dni, :usuario_nombre, :usuario_apellido, :usuario_direccion, :usuario_telefono, :usuario_mail, :usuario_password)");
 			
 			$query -> bindParam(":usuario_dni", $request["user-dni"], PDO::PARAM_INT);
 			$query -> bindParam(":usuario_nombre", $request["user-name"], PDO::PARAM_STR);

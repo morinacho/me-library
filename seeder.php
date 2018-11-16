@@ -69,9 +69,9 @@
 			    INSERT INTO tema (tema_cdu, tema_nombre) VALUES ('7','LINGUISTICA -FILOLOGIA - LITERATURA');
 			    INSERT INTO tema (tema_cdu,tema_nombre) VALUES ('8','GEOGRAFIA -BIOGRAFIAS - HISTORIA');
 				/* Cargo los idiomas */
-			    INSERT INTO idioma (idioma_descripcion) VALUES ('Espanol');
-			    INSERT INTO idioma (idioma_descripcion) VALUES ('Ingles');
-			    INSERT INTO idioma (idioma_descripcion) VALUES ('Portuguez');
+			    INSERT INTO idioma (idioma_id, idioma_descripcion) VALUES ('1', 'Espanol');
+			    INSERT INTO idioma (idioma_id, idioma_descripcion) VALUES ('2', 'Ingles');
+			    INSERT INTO idioma (idioma_id, idioma_descripcion) VALUES ('3', 'Portuguez');
 				/* Cargo editoriales */
 			    INSERT INTO editorial (nombre, direccion_fiscal) VALUES ('ALIENTA EDITORIAL','Calle Falsa');
 			    INSERT INTO editorial (nombre, direccion_fiscal) VALUES ('AUSTRAL','Calle Falsa 567');

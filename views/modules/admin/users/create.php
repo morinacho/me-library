@@ -2,7 +2,7 @@
 	<nav>
 		<div class="nav nav-tabs justify-content-end" id="nav-newuser-tab" role="tablist">
 			<a class="nav-item nav-link active align-content-center" id="book-data-tab" data-toggle="tab" href="#book-data" role="tab">Datos usuario</a>
-			<a class="nav-item nav-link" id="autor-data-tab" data-toggle="tab" href="#autor-data" role="tab">Datos académico</a>
+			
 		</div>
 	</nav>
 	<div class="tab-content" id="nav-newuser">
