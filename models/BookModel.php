@@ -58,9 +58,13 @@
 
 			try{
 				$query = ConexionModel::conect()->prepare("
-					SELECT book.libro_titulo
-					FROM libro book
-					WHERE book.libro_titulo=:titulo;");
+					SELECT book.libro_titulo,auth.autor_apellido,auth.autor_nombre,edi.nombre 
+					FROM libro book,autor auth,editorial edi,libro_has_autor libAut
+					WHERE book.libro_titulo=:titulo          and
+						  book.editorial_id=edi.id_editorial And
+				          book.libro_isbn=libAut.libro_isbn  And
+				          auth.autor_id=libAut.autor_id_autor;");
+
 				$query -> bindParam(":titulo", $name["book-title"], PDO::PARAM_STR);
 		        $query->execute();
 		        $response = $query->fetchAll();
