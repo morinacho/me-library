@@ -30,8 +30,9 @@
 		
 		public function createModel(){
 			try{
-				$query = ConexionModel::conect()->prepare("SELECT usuario_dni, usuario_nombre, usuario_apellido,usuario_direccion,usuario_telefono,usuario_mail 
-					FROM usuario ORDER BY apellido");			 
+				$query = ConexionModel::conect()->prepare("SELECT usuario_dni, usuario_nombre, usuario_apellido, usuario_telefono, usuario_mail 
+														   FROM usuario 
+														   ORDER BY usuario_apellido");			 
 		        $query->execute();
 		        $response = $query->fetchAll();
 		        return $response;  
