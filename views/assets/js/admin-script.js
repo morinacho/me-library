@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	//Agregando elementos a la tabla de autores
+
 	$("#add-autor").click(function(){
 		nombre    = $("#autor-add").val();
 		tipoAutor = $("#autor-tipo").val();
@@ -51,6 +52,7 @@ $(document).ready(function(){
 		}
 	});
 
+	
 	/*
 	 * Enviando a travez de AJAX
 	 */
