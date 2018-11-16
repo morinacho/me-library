@@ -29,8 +29,8 @@
   require_once("../../../../controllers/AuthorController.php");
   require_once("../../../../models/AuthorModel.php");
 
-  if (isset($_POST["create-autor"])){
+
     $createAuthor = new AuthorController();
     $createAuthor->store();
-  }
+  
 ?>
