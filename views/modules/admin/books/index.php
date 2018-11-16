@@ -36,24 +36,7 @@
                        </div>  
                     </div>' ;   }
   
-          /*require_once("../../../../controllers/BookController.php");
-          require_once("../../../../models/BookModel.php");  
-          $book = new BookController();
-              $books = $book->create();
-
-             foreach ($books as $key => $value){
-                echo '<div class="col-3">
-                        <div class="card book">
-                          <div class="card-body ">
-                            <img src="../../../assets/images/cover.png" class="img-fluid" alt="">
-                                <span style="color:blue">'.$value["libro_titulo"].'</span> 
-                                  <a class="info material-icons col-4" data-toggle="tooltip" data-html="true" data-placement="bottom" title="'.$value["autor_nombre"]." ".$value["autor_apellido"].'">perm_identity</a>
-                                  <a class="info material-icons col-4" data-toggle="tooltip" data-html="true" data-placement="bottom" title="'.$value["nombre"].'">reorder</a>
-                                  <a class="info material-icons col-4" data-toggle="tooltip" data-html="true" data-placement="bottom" title="Disponible<br>No disponible">remove_red_eye</a>
-                           </div> 
-                       </div>  
-                    </div>' ;}
-          */?>  
+       ?>  
       </div>
       <div class="tab-pane fade" id="v-pills-newbook" role="tabpanel">
         <?php include("create.php") ;?>
